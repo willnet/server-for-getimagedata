@@ -24,9 +24,5 @@
     "heroku",
     "express"
   ],
-  "license": "MIT",
-  "devDependencies": {
-    "gm": "^1.20.0",
-    "request": "^2.65.0"
-  }
+  "license": "MIT"
 }
