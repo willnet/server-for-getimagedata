@@ -1,23 +1,36 @@
-# node-js-getting-started
+# server-for-getimagedata
 
-A barebones Node.js app using [Express 4](http://expressjs.com/).
+- [$.getImageData](http://www.maxnov.com/getimagedata/) を使用するために必要なサーバ
+    - 指定されたURLの画像をbase64に変換し、JSONP形式で返します
+- node.js を使用しています
+- heroku で動かすこともできます
 
-This application supports the [Getting Started with Node on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs) article - check it out.
+## ローカルで動かす
 
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-## Running Locally
-
-Make sure you have [Node.js](http://nodejs.org/) and the [Heroku Toolbelt](https://toolbelt.heroku.com/) installed.
+もし node.js をインストールしていなければインストールします。mac なら
 
 ```sh
-$ git clone git@github.com:heroku/node-js-getting-started.git # or clone your own fork
-$ cd node-js-getting-started
+$ brew install node
+```
+
+でインストールできます。また、画像処理用にimagemagick(もしくはGraphicsMagick)が必要です。これもインストールしていなければインストールします。
+
+```sh
+$ brew install imagemagick
+```
+
+その後次のようにしてサーバを立ち上げます。
+
+
+```sh
+$ git clone https://github.com/willnet/server-for-getimagedata.git
+$ cd server-for-getimagedata
 $ npm install
 $ npm start
 ```
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+`http://localhost:5000/?url=画像のURL&callback=コールバック用の関数名` でアクセスできます。ちゃんと動いているかどうか、適当な画像のURLとコールバック名を指定して試してみると良いでしょう。
+
 
 ## Deploying to Heroku
 
@@ -26,13 +39,3 @@ $ heroku create
 $ git push heroku master
 $ heroku open
 ```
-
-## Documentation
-
-For more information about using Node.js on Heroku, see these Dev Center articles:
-
-- [Getting Started with Node.js on Heroku](https://devcenter.heroku.com/articles/getting-started-with-nodejs)
-- [Heroku Node.js Support](https://devcenter.heroku.com/articles/nodejs-support)
-- [Node.js on Heroku](https://devcenter.heroku.com/categories/nodejs)
-- [Best Practices for Node.js Development](https://devcenter.heroku.com/articles/node-best-practices)
-- [Using WebSockets on Heroku with Node.js](https://devcenter.heroku.com/articles/node-websockets)
