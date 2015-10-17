@@ -24,8 +24,7 @@ app.get('/', function(req, res) {
     callback = req.param("callback");
 
     // Couldn't have done this without the help of bxjx (http://stackoverflow.com/users/373903)
-    request({ uri:url, encoding: null }, function (error, response, body) {
-
+    request({ uri:url, encoding: null, headers: { 'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36'} }, function (error, response, body) {
       // If the request was OK
       if (!error && response.statusCode == 200) {
 
