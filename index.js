@@ -1,3 +1,8 @@
+var request = require('request');
+var gm = require('gm');
+var imageMagick = gm.subClass({ imageMagick: true });
+var http = require('http');
+var fs = require('fs');
 var express = require('express');
 var app = express();
 
@@ -16,5 +21,3 @@ app.get('/', function(request, response) {
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
-
-
